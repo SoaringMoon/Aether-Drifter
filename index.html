@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aether Drifter</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #050505;
+            color: #a3e635; /* Tailwind Lime-400 */
+            font-family: 'Courier New', Courier, monospace;
+        }
+        canvas {
+            display: block;
+        }
+        /* Custom Scrollbar for the terminal look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #111;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3f6212;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #65a30d;
+        }
+        
+        /* CRT Scanline Effect */
+        .crt::before {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(18, 16, 16, 0) 50%,
+                rgba(0, 0, 0, 0.25) 50%
+            );
+            background-size: 100% 4px;
+            z-index: 50;
+            pointer-events: none;
+        }
+        .crt::after {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: rgba(18, 16, 16, 0.1);
+            opacity: 0;
+            z-index: 50;
+            pointer-events: none;
+            animation: flicker 0.15s infinite;
+        }
+        @keyframes flicker {
+            0% { opacity: 0.027906; }
+            5% { opacity: 0.034860; }
+            10% { opacity: 0.023061; }
+            15% { opacity: 0.032338; }
+            20% { opacity: 0.026749; }
+            25% { opacity: 0.031084; }
+            30% { opacity: 0.023246; }
+            35% { opacity: 0.032588; }
+            40% { opacity: 0.026219; }
+            45% { opacity: 0.033783; }
+            50% { opacity: 0.025219; }
+            55% { opacity: 0.032644; }
+            60% { opacity: 0.025492; }
+            65% { opacity: 0.031853; }
+            70% { opacity: 0.024588; }
+            75% { opacity: 0.034032; }
+            80% { opacity: 0.026262; }
+            85% { opacity: 0.031441; }
+            90% { opacity: 0.023369; }
+            95% { opacity: 0.032488; }
+            100% { opacity: 0.026262; }
+        }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "react": "https://aistudiocdn.com/react@^19.2.1"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
